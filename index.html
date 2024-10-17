@@ -45,6 +45,7 @@
         <thead>
             <tr>
                 <th>Select</th>
+                <th>Course (optional)</th>
                 <th>Grade</th>
                 <th>Credits</th>
                 <th>Remove</th>
@@ -53,6 +54,7 @@
         <tbody>
             <tr>
                 <td><input type="checkbox" class="select-row"></td>
+                <td><input type="text" class="course-name" placeholder="Course name"></td>
                 <td>
                     <select class="grade">
                         <option value=""></option>
@@ -113,6 +115,7 @@
             rows.forEach(row => {
                 const checkbox = row.querySelector('.select-row');
                 if (checkbox.checked) {
+                    row.querySelector('.course-name').value = "";
                     row.querySelector('.grade').value = "";
                     row.querySelector('.credits').value = "";
                     checkbox.checked = false;
@@ -128,6 +131,7 @@
 
             newRow.innerHTML = `
                 <td><input type="checkbox" class="select-row"></td>
+                <td><input type="text" class="course-name" placeholder="Course name"></td>
                 <td>
                     <select class="grade">
                         <option value=""></option>
@@ -169,3 +173,4 @@
 
 </body>
 </html>
+
