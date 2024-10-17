@@ -26,6 +26,8 @@
             text-align: center;
             font-size: 24px;
             width: 100%;
+            max-width: 1200px; /* Adjusted width for header */
+            margin: 0 auto; /* Center the header */
         }
 
         footer {
@@ -36,10 +38,10 @@
 
         .calculator-container {
             background-color: white;
-            padding: 30px;
+            padding: 40px; /* Increased padding for a larger calculator */
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 400px;
+            width: 450px; /* Increased width for calculator */
             max-width: 100%;
             text-align: center;
             margin: auto;
@@ -59,20 +61,19 @@
 
         th {
             background-color: #f4f4f4;
-            border-radius: 8px 8px 0 0;
+            border: 1px solid #ccc; /* Added border for headers */
         }
 
         td {
             border: 1px solid #ccc;
-            border-radius: 8px;
         }
 
         input, select {
             padding: 8px;
             width: 100%;
             box-sizing: border-box;
-            border: none;
-            border-radius: 8px;
+            border: 1px solid #ccc; /* Straight borders */
+            border-radius: 0; /* No rounded corners */
         }
 
         button {
@@ -107,9 +108,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Course (optional)</th>
-                    <th>Grade</th>
-                    <th>Credits</th>
+                    <th colspan="3">Course (optional), Grade, Credits</th> <!-- Combined Header -->
                     <th></th>
                 </tr>
             </thead>
@@ -239,4 +238,5 @@
 
 </body>
 </html>
+
 
