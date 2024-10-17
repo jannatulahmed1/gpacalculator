@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input, select {
+            padding: 5px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        .remove-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="center">GPA Calculator</h2>
+
+    <table id="gpaTable" border="1">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Grade</th>
+                <th>Credits</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" class="select-row"></td>
+                <td>
+                    <select class="grade">
+                        <option value=""></option>
+                        <option value="4.3">A+</option>
+                        <option value="4.0">A</option>
+                        <option value="3.7">A−</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B−</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C−</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.7">D−</option>
+                        <option value="0.0">F</option>
+                    </select>
+                </td>
+                <td><input type="number" class="credits" min="0"></td>
+                <td><span class="remove-btn">X</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="center">
+        <button id="addRowBtn">Add Rows</button>
+        <button id="calculateBtn">Calculate GPA</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <h3 class="center">GPA: <span id="gpaResult">0.00</span></h3>
+
+    <script>
+        // Function to calculate GPA
+        function calculateGPA() {
+            let totalCredits = 0;
+            let totalPoints = 0;
+            const rows = document.querySelectorAll('#gpaTable tbody tr');
+
+            rows.forEach(row => {
+                const checkbox = row.querySelector('.select-row');
+                const grade = row.querySelector('.grade').value;
+                const credits = parseFloat(row.querySelector('.credits').value);
+
+                if (grade !== "" && credits > 0 && (checkbox.checked || checkbox.checked === false)) {
+                    totalCredits += credits;
+                    totalPoints += grade * credits;
+                }
+            });
+
+            const gpa = (totalCredits > 0) ? (totalPoints / totalCredits).toFixed(2) : "0.00";
+            document.getElementById('gpaResult').innerText = gpa;
+        }
+
+        // Function to reset the form based on checkboxes
+        function resetForm() {
+            const rows = document.querySelectorAll('#gpaTable tbody tr');
+            rows.forEach(row => {
+                const checkbox = row.querySelector('.select-row');
+                if (checkbox.checked) {
+                    row.querySelector('.grade').value = "";
+                    row.querySelector('.credits').value = "";
+                    checkbox.checked = false;
+                }
+            });
+            document.getElementById('gpaResult').innerText = "0.00";
+        }
+
+        // Function to add a new row
+        function addRow() {
+            const tableBody = document.querySelector('#gpaTable tbody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td><input type="checkbox" class="select-row"></td>
+                <td>
+                    <select class="grade">
+                        <option value=""></option>
+                        <option value="4.3">A+</option>
+                        <option value="4.0">A</option>
+                        <option value="3.7">A−</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B−</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C−</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.7">D−</option>
+                        <option value="0.0">F</option>
+                    </select>
+                </td>
+                <td><input type="number" class="credits" min="0"></td>
+                <td><span class="remove-btn">X</span></td>
+            `;
+            tableBody.appendChild(newRow);
+        }
+
+        // Function to remove a row
+        function removeRow(e) {
+            if (e.target.classList.contains('remove-btn')) {
+                const row = e.target.closest('tr');
+                row.remove();
+            }
+        }
+
+        // Event listeners
+        document.getElementById('addRowBtn').addEventListener('click', addRow);
+        document.getElementById('gpaTable').addEventListener('click', removeRow);
+        document.getElementById('calculateBtn').addEventListener('click', calculateGPA);
+        document.getElementById('resetBtn').addEventListener('click', resetForm);
+    </script>
+
+</body>
+</html>
