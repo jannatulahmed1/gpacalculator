@@ -29,6 +29,9 @@
             padding: 20px 0;
             font-size: 24px;
             width: 100%;
+            position: fixed; /* Fixes header at the top */
+            top: 0;
+            left: 0;
         }
 
         /* Centering calculator container */
@@ -39,7 +42,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 500px;
             text-align: center;
-            margin: 20px auto;
+            margin-top: 100px; /* Add space below the fixed header */
         }
 
         table {
@@ -110,7 +113,7 @@
 </head>
 <body>
 
-    <!-- Full-width header -->
+    <!-- Full-width header at the top -->
     <header>GPA Calculator</header>
 
     <!-- GPA Calculator Container -->
