@@ -15,36 +15,30 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            background-color: #f4f4f4;
         }
 
         header {
             background-color: #333;
             color: white;
-            padding: 15px;
+            padding: 0.75in 0;
             text-align: center;
             font-size: 24px;
-            width: 100%;
-            max-width: 1200px; /* Adjusted width for header */
-            margin: 0 auto; /* Center the header */
-        }
-
-        footer {
-            background-color: #333;
-            height: 50px;
             width: 100%;
         }
 
         .calculator-container {
             background-color: white;
-            padding: 40px; /* Increased padding for a larger calculator */
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 450px; /* Increased width for calculator */
-            max-width: 100%;
+            width: 500px; /* Increased width for calculator */
+            border: 2px solid #ccc; /* Added border around calculator */
             text-align: center;
-            margin: auto;
+            margin: 20px auto;
         }
 
         table {
@@ -72,8 +66,7 @@
             padding: 8px;
             width: 100%;
             box-sizing: border-box;
-            border: 1px solid #ccc; /* Straight borders */
-            border-radius: 0; /* No rounded corners */
+            border: 1px solid #ccc;
         }
 
         button {
@@ -148,9 +141,6 @@
 
         <h3>GPA: <span id="gpaResult">0.00</span></h3>
     </div>
-
-    <!-- Footer -->
-    <footer></footer>
 
     <script>
         // Function to calculate GPA
