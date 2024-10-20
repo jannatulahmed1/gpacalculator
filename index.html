@@ -34,7 +34,7 @@
             left: 0;
         }
 
-        /* Centering calculator container and making it larger */
+        /* Centering calculator container with thin light blue border */
         .calculator-container {
             background-color: white;
             padding: 50px;
@@ -43,12 +43,12 @@
             width: 600px; /* Increased width */
             text-align: center;
             margin-top: 130px; /* Adjusted margin to accommodate larger header */
+            border: 1px solid #ADD8E6; /* Thin light blue border */
         }
 
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 10px;
+            border-collapse: collapse; /* Changed to collapse for consistent borders */
             margin-bottom: 20px;
         }
 
@@ -56,12 +56,13 @@
         th, td {
             text-align: center;
             padding: 10px;
+            border: 1px solid black; /* Black border for cells */
         }
 
         /* Top header row - no border */
         th {
             font-weight: normal;
-            border-bottom: none;
+            border-bottom: none; /* No border for the first row */
         }
 
         .course-name {
