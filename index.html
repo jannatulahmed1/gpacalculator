@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Calculator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Garamond', serif; /* Set body font to Garamond */
+            font-family: 'Arimo', sans-serif; /* Set body font to Arimo */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -75,6 +75,11 @@
             width: 20%;
         }
 
+        /* Empty left and right columns */
+        .empty-left, .empty-right {
+            width: 5%;
+        }
+
         /* Select checkbox and remove button */
         .select-row {
             text-align: center;
@@ -121,11 +126,11 @@
         <table>
             <thead>
                 <tr>
-                    <th class="select-row"></th> <!-- Checkbox left column -->
+                    <th class="empty-left"></th> <!-- Empty left column -->
                     <th class="course-name">Course</th>
                     <th class="grade">Grade</th>
                     <th class="credits">Credits</th>
-                    <th class="select-row"></th> <!-- Right column with option to remove -->
+                    <th class="empty-right"></th> <!-- Empty right column -->
                 </tr>
             </thead>
             <tbody id="gpaTable">
