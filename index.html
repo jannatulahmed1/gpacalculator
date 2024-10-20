@@ -75,11 +75,6 @@
             width: 20%;
         }
 
-        /* Empty left and right columns */
-        .empty-left, .empty-right {
-            width: 5%;
-        }
-
         /* Select checkbox and remove button */
         .select-row {
             text-align: center;
@@ -126,11 +121,11 @@
         <table>
             <thead>
                 <tr>
-                    <th class="empty-left"></th> <!-- Empty left column -->
+                    <th class="select-row"></th> <!-- Checkbox left column -->
                     <th class="course-name">Course</th>
                     <th class="grade">Grade</th>
                     <th class="credits">Credits</th>
-                    <th class="empty-right"></th> <!-- Empty right column -->
+                    <th class="select-row"></th> <!-- Right column with option to remove -->
                 </tr>
             </thead>
             <tbody id="gpaTable">
@@ -252,6 +247,7 @@
 
 </body>
 </html>
+
 
 
 
