@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Calculator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +12,7 @@
         }
 
         body {
-            font-family: 'Arimo', sans-serif; /* Set body font to Arimo */
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -22,24 +21,23 @@
             background-color: #f4f4f4;
         }
 
-        /* Full-width light blue header with increased height and Anton font */
+        /* Full-width light blue header with increased height */
         header {
             background-color: #ADD8E6; /* Light blue */
             color: white;
             text-align: center;
             padding: 30px 0; /* Increased height */
             font-size: 28px; /* Slightly larger font */
-            font-family: 'Anton', sans-serif; /* Set header font to Anton */
             width: 100%;
             position: fixed; /* Fixes header at the top */
             top: 0;
             left: 0;
         }
 
-        /* Centering calculator container with thin light blue border and increased height */
+        /* Centering calculator container with thin light blue border */
         .calculator-container {
             background-color: white;
-            padding: 60px; /* Increased padding for a taller container */
+            padding: 50px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 600px; /* Increased width */
@@ -91,13 +89,11 @@
             font-size: 18px;
         }
 
-        /* Increased padding for input and select elements */
         input, select {
-            padding: 12px; /* Increased padding for larger input boxes */
-            width: calc(100% - 24px); /* Adjusted width for borders */
+            padding: 8px;
+            width: 100%;
             box-sizing: border-box;
             border: 1px solid #ccc;
-            border-radius: 4px; /* Rounded corners */
         }
 
         /* Buttons */
