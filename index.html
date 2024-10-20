@@ -22,12 +22,22 @@
         }
 
         header {
-            background-color: #333;
+            background-color: #ADD8E6; /* Light blue header */
             color: white;
             padding: 0.75in 0;
             text-align: center;
             font-size: 24px;
             width: 100%;
+            position: relative;
+        }
+
+        .header-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            font-weight: bold;
         }
 
         .calculator-container {
@@ -92,8 +102,10 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>GPA Calculator</header>
+    <!-- Header with centered GPA Calculator title -->
+    <header>
+        <div class="header-title">GPA Calculator</div>
+    </header>
 
     <!-- GPA Calculator -->
     <div class="calculator-container">
@@ -101,7 +113,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th colspan="3">Course (optional), Grade, Credits</th> <!-- Combined Header -->
+                    <th colspan="3">Course, Grade, Credits</th> <!-- Simplified header -->
                     <th></th>
                 </tr>
             </thead>
