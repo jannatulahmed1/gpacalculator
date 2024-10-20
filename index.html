@@ -21,55 +21,68 @@
             background-color: #f4f4f4;
         }
 
+        /* Full-width light blue header */
         header {
-            background-color: #ADD8E6; /* Light blue header */
+            background-color: #ADD8E6; /* Light blue */
             color: white;
-            padding: 0.75in 0;
             text-align: center;
+            padding: 20px 0;
             font-size: 24px;
             width: 100%;
-            position: relative;
         }
 
-        .header-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 28px;
-            font-weight: bold;
-        }
-
+        /* Centering calculator container */
         .calculator-container {
             background-color: white;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 500px; /* Increased width for calculator */
-            border: 2px solid #ccc; /* Added border around calculator */
+            width: 500px;
             text-align: center;
             margin: 20px auto;
         }
 
         table {
             width: 100%;
-            margin-bottom: 20px;
             border-collapse: separate;
-            border-spacing: 0 10px;
+            border-spacing: 10px;
+            margin-bottom: 20px;
         }
 
+        /* Style for table columns */
         th, td {
+            text-align: center;
             padding: 10px;
+        }
+
+        /* Top header row - no border */
+        th {
+            font-weight: normal;
+            border-bottom: none;
+        }
+
+        .course-name {
+            width: 60%;
+        }
+
+        .grade, .credits {
+            width: 20%;
+        }
+
+        /* Empty left and right columns */
+        .empty-left, .empty-right {
+            width: 5%;
+        }
+
+        /* Select checkbox and remove button */
+        .select-row {
             text-align: center;
         }
 
-        th {
-            background-color: #f4f4f4;
-            border: 1px solid #ccc; /* Added border for headers */
-        }
-
-        td {
-            border: 1px solid #ccc;
+        .remove-btn {
+            color: red;
+            cursor: pointer;
+            font-size: 18px;
         }
 
         input, select {
@@ -79,6 +92,7 @@
             border: 1px solid #ccc;
         }
 
+        /* Buttons */
         button {
             padding: 8px 16px;
             margin: 5px;
@@ -92,32 +106,26 @@
         button:hover {
             background-color: #0056b3;
         }
-
-        .remove-btn {
-            color: red;
-            cursor: pointer;
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Header with centered GPA Calculator title -->
-    <header>
-        <div class="header-title">GPA Calculator</div>
-    </header>
+    <!-- Full-width header -->
+    <header>GPA Calculator</header>
 
-    <!-- GPA Calculator -->
+    <!-- GPA Calculator Container -->
     <div class="calculator-container">
-        <table id="gpaTable">
+        <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th colspan="3">Course, Grade, Credits</th> <!-- Simplified header -->
-                    <th></th>
+                    <th class="empty-left"></th> <!-- Empty left column -->
+                    <th class="course-name">Course</th>
+                    <th class="grade">Grade</th>
+                    <th class="credits">Credits</th>
+                    <th class="empty-right"></th> <!-- Empty right column -->
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="gpaTable">
                 <tr>
                     <td><input type="checkbox" class="select-row"></td>
                     <td><input type="text" class="course-name" placeholder="Course name"></td>
@@ -145,6 +153,7 @@
             </tbody>
         </table>
 
+        <!-- Bottom buttons -->
         <div>
             <button id="addRowBtn">Add Rows</button>
             <button id="calculateBtn">Calculate GPA</button>
@@ -159,14 +168,13 @@
         function calculateGPA() {
             let totalCredits = 0;
             let totalPoints = 0;
-            const rows = document.querySelectorAll('#gpaTable tbody tr');
+            const rows = document.querySelectorAll('#gpaTable tr');
 
             rows.forEach(row => {
-                const checkbox = row.querySelector('.select-row');
                 const grade = row.querySelector('.grade').value;
                 const credits = parseFloat(row.querySelector('.credits').value);
 
-                if (grade !== "" && credits > 0 && (checkbox.checked || checkbox.checked === false)) {
+                if (grade !== "" && credits > 0) {
                     totalCredits += credits;
                     totalPoints += grade * credits;
                 }
@@ -176,24 +184,20 @@
             document.getElementById('gpaResult').innerText = gpa;
         }
 
-        // Function to reset the form based on checkboxes
+        // Function to reset the form
         function resetForm() {
-            const rows = document.querySelectorAll('#gpaTable tbody tr');
+            const rows = document.querySelectorAll('#gpaTable tr');
             rows.forEach(row => {
-                const checkbox = row.querySelector('.select-row');
-                if (checkbox.checked) {
-                    row.querySelector('.course-name').value = "";
-                    row.querySelector('.grade').value = "";
-                    row.querySelector('.credits').value = "";
-                    checkbox.checked = false;
-                }
+                row.querySelector('.course-name').value = "";
+                row.querySelector('.grade').value = "";
+                row.querySelector('.credits').value = "";
             });
             document.getElementById('gpaResult').innerText = "0.00";
         }
 
         // Function to add a new row
         function addRow() {
-            const tableBody = document.querySelector('#gpaTable tbody');
+            const tableBody = document.querySelector('#gpaTable');
             const newRow = document.createElement('tr');
 
             newRow.innerHTML = `
@@ -240,5 +244,6 @@
 
 </body>
 </html>
+
 
 
