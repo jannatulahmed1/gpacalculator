@@ -42,11 +42,13 @@
         table {
             width: 100%;
             margin-bottom: 20px;
-            border-spacing: 0.5rem;
+            border-collapse: collapse; /* Ensures that borders share between cells */
         }
 
         th, td {
             text-align: center;
+            border: 1px solid lightblue; /* Light blue borders for cells */
+            padding: 8px; /* Padding inside the cells */
         }
 
         th {
