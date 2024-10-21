@@ -20,8 +20,8 @@
             background-color: lightblue;
             color: white;
             text-align: center;
-            font-size: 1.2em;
-            padding: 0.5in 0;
+            font-size: 1.1em;
+            padding: 0.4in 0;
             width: 100%;
             position: fixed;
             top: 0;
@@ -32,7 +32,7 @@
         .container {
             border: 1px solid lightblue;
             padding: 20px;
-            margin-top: 100px;
+            margin-top: 90px;
             width: fit-content;
             text-align: center;
             background-color: white;
@@ -137,6 +137,7 @@
         document.getElementById('add-row-btn').addEventListener('click', addRow);
         document.getElementById('calculate-btn').addEventListener('click', calculateGPA);
 
+        // Function to add a new row
         function addRow() {
             const tableBody = document.getElementById('gpa-rows');
             const row = document.createElement('tr');
@@ -166,9 +167,16 @@
 
             tableBody.appendChild(row);
 
+            // Event listener to remove the row when 'X' is clicked
             row.querySelector('.remove-btn').addEventListener('click', () => row.remove());
         }
 
+        // Add one row when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            addRow();
+        });
+
+        // Function to calculate GPA
         function calculateGPA() {
             const rows = document.querySelectorAll('#gpa-rows tr');
             let totalCredits = 0;
